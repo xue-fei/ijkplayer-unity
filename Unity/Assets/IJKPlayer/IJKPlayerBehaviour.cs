@@ -57,7 +57,7 @@ namespace IJKPlayer
 
             _playerNative.OnPreparedAction = OnPreparedAction;
             _playerNative.OnCompletionAction = OnCompletionAction;
-
+            _playerNative.OnVideoSizeChangedAction = OnVideoSizeChangedAction;
             SetPlayerOptions();
             renderObject.texture = _playerNative.UnityExternalTexture;
         }
@@ -71,7 +71,12 @@ namespace IJKPlayer
         private void OnPreparedAction()
         {
             OnPrepared?.Invoke();
-            Debug.Log("加载完成...");
+            Debug.Log("视频准备好了...");
+        }
+
+        private void OnVideoSizeChangedAction(int i, int i1, int i2, int i3)
+        {
+            Debug.Log("i:" + i + " i1:" + i1 + " i2:" + i2 + " i3:" + i3);
         }
 
         private void SetPlayerOptions()

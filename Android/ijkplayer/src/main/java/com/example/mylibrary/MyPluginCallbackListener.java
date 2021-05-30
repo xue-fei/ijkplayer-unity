@@ -10,4 +10,6 @@ public interface MyPluginCallbackListener {
 
     // 网络断开会调用此方法
     void OnCompletion();
+
+    void OnVideoSizeChanged(int i,int i1,int i2,int i3);
 }

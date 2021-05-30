@@ -96,6 +96,16 @@ public class MyPlugin extends UnityPlayerActivity{
                     }
                 }
             });
+            // 视频大小变化时
+            player.setOnVideoSizeChangedListener(new IMediaPlayer.OnVideoSizeChangedListener() {
+                                                     @Override
+                                                     public void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i1, int i2, int i3) {
+                                                         if(_listener != null){
+                                                             Log.e(TAG, "i:"+i+" i1:"+i1+" i2:"+i2+" i3:"+i3);
+                                                             _listener.OnVideoSizeChanged(i,i1,i2,i3);
+                                                         }
+                                                     }
+                                                 });
 
             player.setDataSource(url);
 
@@ -116,6 +126,12 @@ public class MyPlugin extends UnityPlayerActivity{
      */
     public void play() {
         player.start();
+    }
+
+    //暂停
+    public void pause()
+    {
+        player.pause();
     }
 
     /***

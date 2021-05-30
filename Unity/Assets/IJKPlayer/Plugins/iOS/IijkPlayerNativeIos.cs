@@ -57,6 +57,7 @@ namespace IJKPlayer
         public long VideoCachedDuration => getVideoCachedDuration();
         public Action OnPreparedAction { get; set; }
         public Action OnCompletionAction { get; set; }
+        public Action<int, int, int, int> OnVideoSizeChangedAction { get; set; }
 
         public Texture2D UnityExternalTexture
         {
@@ -64,7 +65,7 @@ namespace IJKPlayer
             {
                 if (_texture) return _texture;
 
-                var id = (IntPtr) getUnityExternalTexture();
+                var id = (IntPtr)getUnityExternalTexture();
                 if (id != IntPtr.Zero)
                 {
                     _texture = Texture2D.CreateExternalTexture(1920, 1080, TextureFormat.RGB24, false, true, id);

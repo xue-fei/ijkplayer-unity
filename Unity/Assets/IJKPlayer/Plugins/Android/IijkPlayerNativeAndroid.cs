@@ -29,12 +29,12 @@ namespace IJKPlayer
         public long VideoCachedDuration => _self.Call<long>("getVideoCachedDuration");
         public Action OnPreparedAction { get; set; }
         public Action OnCompletionAction { get; set; }
-
+        public Action<int, int, int, int> OnVideoSizeChangedAction { get; set; }
         #region Java代理方法
 
         public void OnPrepared() => OnPreparedAction();
         public void OnCompletion() => OnCompletionAction();
-
+        public void OnVideoSizeChanged(int i, int i1, int i2, int i3) => OnVideoSizeChangedAction(i, i1, i2, i3);
         #endregion
 
         public Texture2D UnityExternalTexture
@@ -43,7 +43,7 @@ namespace IJKPlayer
             {
                 if (_texture) return _texture;
 
-                var id = (IntPtr) _self.Call<int>("getUnityExternalTexture");
+                var id = (IntPtr)_self.Call<int>("getUnityExternalTexture");
                 if (id != IntPtr.Zero)
                 {
                     _texture = Texture2D.CreateExternalTexture(1920, 1080, TextureFormat.RGB565, false, true, id);
@@ -63,7 +63,7 @@ namespace IJKPlayer
         public void UpdateExternalTexture()
         {
             int id = _self.Call<int>("updateTexture");
-            _texture.UpdateExternalTexture((IntPtr) id);
+            _texture.UpdateExternalTexture((IntPtr)id);
         }
 
         public void SetOptionValue(int category, string key, string value)

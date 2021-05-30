@@ -14,7 +14,8 @@ namespace IJKPlayer
         
         Action OnPreparedAction { get; set; }
         Action OnCompletionAction { get; set; }
-        
+        Action<int,int,int,int> OnVideoSizeChangedAction { get; set; }
+
         Texture2D UnityExternalTexture { get; }
 
         void UpdateExternalTexture();
