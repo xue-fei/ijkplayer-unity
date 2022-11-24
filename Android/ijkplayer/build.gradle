@@ -47,3 +47,7 @@ task buildAARForUnity(type: Copy) {
 
 buildAARForUnity.dependsOn(clean, build)
 build.mustRunAfter clean
+
+afterEvaluate {
+    generateReleaseBuildConfig.enabled = false
+}

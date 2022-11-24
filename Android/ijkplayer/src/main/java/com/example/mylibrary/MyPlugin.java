@@ -9,10 +9,11 @@ import android.os.Build;
 import android.util.Log;
 import android.view.Surface;
 import com.unity3d.player.UnityPlayer;
+import com.unity3d.player.UnityPlayerNativeActivity;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
-public class MyPlugin extends UnityPlayerActivity{
+public class MyPlugin extends UnityPlayerNativeActivity{
     private static final String TAG = "MyPlugin";
     private int _textureId = 0;
     private SurfaceTexture _surfaceTexture;
