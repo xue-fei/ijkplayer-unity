@@ -17,3 +17,5 @@ AndroidStudio Build-Make Module-MyApplication.ijkplayer
 
 拷贝到Unity工程路径下 ijkplayer-unity\Assets\IJKPlayer\Plugins\Android
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0528/204952_f57f8616_80624.jpeg "Screenshot_20210528-204804.jpg")
+
+rtmp://58.200.131.2:1935/livetv/hunantv 这个地址好像不行了
