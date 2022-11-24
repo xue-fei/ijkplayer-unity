@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace IJKPlayer
 {
+#if UNITY_IOS
     /// <summary>
     /// IOS实现
     /// </summary>
     public class IijkPlayerNativeIos : IIJKPlayerNative
     {
-        #region IOS Native API
+        
+    #region IOS Native API
 
         [DllImport("__Internal")]
         private static extern void setOptionValue(int category, string key, string value);
@@ -44,7 +46,7 @@ namespace IJKPlayer
         [DllImport("__Internal")]
         private static extern int getUnityExternalTexture();
 
-        #endregion
+    #endregion
 
         private Texture2D _texture;
 
@@ -110,5 +112,7 @@ namespace IJKPlayer
             release();
             _texture = null;
         }
+
     }
+#endif
 }
