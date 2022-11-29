@@ -11,7 +11,9 @@ classes.jar路径是C:\Program Files\Unity\Hub\Editor\2021.3.12f1c2\Editor\Data\
 
 UnityPlayerActivity.java路径是C:\Program Files\Unity\Hub\Editor\2021.3.12f1c2\Editor\Data\PlaybackEngines\AndroidPlayer\Source\com\unity3d\player
 
-AndroidStudio Build-Make Module-MyApplication.ijkplayer
+AndroidStudio 
+ijkplayer  Build-Make Module-Android.ijkplayer 
+ijkplayer-java   Build-Make Module-Android.ijkplayer-java 
 
 输出的ijkplayer-debug.aar路径是ijkplayer-unity\Android\ijkplayer\build\outputs\aar
 输出的ijkplayer-java-debug.aar路径是ijkplayer-unity\Android\ijkplayer-java\build\outputs\aar
