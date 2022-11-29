@@ -8,7 +8,7 @@ namespace IJKPlayer
     /// </summary>
     public class IijkPlayerNativeAndroid : AndroidJavaProxy, IIJKPlayerNative
     {
-        private const string ClassName = "com.example.mylibrary.MyPlugin";
+        private const string ClassName = "cn.net.xuefei.ijkplayer.MyPlugin";
 
         private AndroidJavaObject _self;
 
@@ -53,7 +53,7 @@ namespace IJKPlayer
             }
         }
 
-        public IijkPlayerNativeAndroid(string url) : base("com.example.mylibrary.MyPluginCallbackListener")
+        public IijkPlayerNativeAndroid(string url) : base("cn.net.xuefei.ijkplayer.MyPluginCallbackListener")
         {
             _self = new AndroidJavaObject(ClassName);
             _self.Call("initSDK", this);
