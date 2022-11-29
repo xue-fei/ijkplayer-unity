@@ -16,7 +16,7 @@ AndroidStudio Build-Make Module-MyApplication.ijkplayer
 输出的ijkplayer-release.aar路径是ijkplayer-unity\NativeProject\Android\ijkplayer\build\outputs\aar
 
 拷贝到Unity工程路径下 ijkplayer-unity\Assets\IJKPlayer\Plugins\Android
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0528/204952_f57f8616_80624.jpeg "Screenshot_20210528-204804.jpg")
+![输入图片说明](Pictures/QQ%E5%9B%BE%E7%89%8720221129155653.jpg)
 
 rtmp://58.200.131.2:1935/livetv/hunantv 这个地址好像不行了
 换成 http://hw-m-l.cztv.com/channels/lantian/channel05/720p.m3u8
