@@ -2,7 +2,7 @@
 
 #### 介绍
 fork from https://github.com/Yinmany/ijkplayer-unity
-bilibli ijkplayer播放器集成到Unity中用作RTMP的直播
+bilibli ijkplayer播放器集成到Unity中用作RTMP的直播（Android平台重新编译ijkplayer后已支持rtsp和https）
 仅支持Android和iOS
 
 #### Android
@@ -13,9 +13,11 @@ UnityPlayerActivity.java路径是C:\Program Files\Unity\Hub\Editor\2021.3.12f1c2
 
 AndroidStudio Build-Make Module-MyApplication.ijkplayer
 
-输出的ijkplayer-release.aar路径是ijkplayer-unity\NativeProject\Android\ijkplayer\build\outputs\aar
+输出的ijkplayer-debug.aar路径是ijkplayer-unity\Android\ijkplayer\build\outputs\aar
+输出的ijkplayer-java-debug.aar路径是ijkplayer-unity\Android\ijkplayer-java\build\outputs\aar
 
 拷贝到Unity工程路径下 ijkplayer-unity\Assets\IJKPlayer\Plugins\Android
+
 ![输入图片说明](Pictures/QQ%E5%9B%BE%E7%89%8720221129155653.jpg)
 
 rtmp://58.200.131.2:1935/livetv/hunantv 这个地址好像不行了
