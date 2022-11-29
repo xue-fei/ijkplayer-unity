@@ -1,2 +1,20 @@
-include ':app', ':ijkplayer'
-rootProject.name='My Application'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+rootProject.name = "Android"
+include ':app'
+include ':ijkplayer'
+include ':ijkplayer-java'

@@ -1,22 +1,17 @@
-apply plugin: 'com.android.library'
-
-afterEvaluate {
-    generateReleaseBuildConfig.enabled = false
+plugins {
+    id 'com.android.library'
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
-
+    namespace 'cn.net.xuefei.ijkplayer'
+    compileSdk 32
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdk 21
+        targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -25,29 +20,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-//    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    compileOnly files('libs\\classes.jar')
-    implementation files('libs\\ijkplayer-java.jar')
-    implementation files('libs\\ijkplayer-arm7a.jar')
-}
-
-task buildAARForUnity(type: Copy) {
-    from('build/outputs/aar/')
-    into('../../../Build')
-}
-
-buildAARForUnity.dependsOn(clean, build)
-build.mustRunAfter clean
-
-afterEvaluate {
-    generateReleaseBuildConfig.enabled = false
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation project(path: ':ijkplayer-java')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    compileOnly files('libs/classes.jar')
 }
