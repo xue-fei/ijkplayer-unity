@@ -89,8 +89,7 @@ namespace IJKPlayer
             _playerNative.SetOptionIntValue(IJKFFOptionCategory.Format, "http-detect-rangs-support", 0);
             //_playerNative.SetOptionIntValue(IJKFFOptionCategory.Format, "probesize", 1024);
             _playerNative.SetOptionIntValue(IJKFFOptionCategory.Format, "infbuf", 1);
-            //_playerNative.SetOptionValue(IJKFFOptionCategory.Format, "fflags", "nobuffer");
-
+            _playerNative.SetOptionValue(IJKFFOptionCategory.Format, "fflags", "nobuffer");
             _playerNative.SetOptionIntValue(IJKFFOptionCategory.Codec, "skip_loop_filter", 48);
         }
 
