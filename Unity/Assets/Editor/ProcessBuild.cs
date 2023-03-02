@@ -26,20 +26,7 @@ public class ProcessBuild
         //xcode Target
         string target = proj.GetUnityMainTargetGuid();
         string unityTarget = proj.GetUnityFrameworkTargetGuid(); 
-
-    #region GMESDK相关
-        const string defaultLocationInProj = "IJKPlayer/Plugins/iOS/IJKPlayer";
-        const string IJKMediaFrameworkName = "IJKMediaFramework.framework"; 
-
-        string IJKMediaFrameworkPath = Path.Combine(defaultLocationInProj, IJKMediaFrameworkName); 
-
-        string fileGuid = proj.AddFile(IJKMediaFrameworkPath, "Frameworks/" + IJKMediaFrameworkPath, PBXSourceTree.Sdk);
-        PBXProjectExtensions.AddFileToEmbedFrameworks(proj, target, fileGuid); 
-
-        proj.SetBuildProperty(target, "LD_RUNPATH_SEARCH_PATHS", "$(inherited) @executable_path/Frameworks"); 
-
-    #endregion
-
+         
         string fileGuidLibz = proj.AddFile("usr/lib/libz.tbd", "Libraries/libz.tbd", PBXSourceTree.Sdk);
         proj.AddFileToBuild(target, fileGuidLibz);
         proj.AddFileToBuild(unityTarget, fileGuidLibz); 
