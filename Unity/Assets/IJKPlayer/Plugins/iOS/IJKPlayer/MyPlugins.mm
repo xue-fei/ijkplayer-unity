@@ -26,7 +26,7 @@ extern "C"
         [options setFormatOptionIntValue:0 forKey:@"http-detect-rangs-support"];
         //[options setFormatOptionIntValue:1024 forKey:@"probesize"];
         [options setFormatOptionIntValue:1 forKey:@"infbuf"];
-        [options setFormatOptionValue:@"nobuffer" forKey:@"fflags"];
+        //[options setFormatOptionValue:@"nobuffer" forKey:@"fflags"];
         
         _player = [IJKFFMoviePlayerController alloc];
         [_player initWithContentURLString:@"rtmp://122.51.160.218/live/livestream" withOptions:options];
