@@ -24,7 +24,7 @@ extern "C"
         [options setCodecOptionIntValue:48 forKey:@"skip_loop_filter"];
         
         [options setFormatOptionIntValue:0 forKey:@"http-detect-rangs-support"];
-        [options setFormatOptionIntValue:1024 forKey:@"probesize"];
+        //[options setFormatOptionIntValue:1024 forKey:@"probesize"];
         [options setFormatOptionIntValue:1 forKey:@"infbuf"];
         [options setFormatOptionValue:@"nobuffer" forKey:@"fflags"];
         
