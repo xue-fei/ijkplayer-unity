@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace 'cn.net.xuefei.ijkplayer'
-    compileSdk 32
+    compileSdk 29
 
     defaultConfig {
         applicationId "cn.net.xuefei.ijkplayer"
-        minSdk 21
+        minSdk 29
         targetSdk 32
         versionCode 1
         versionName "1.0"

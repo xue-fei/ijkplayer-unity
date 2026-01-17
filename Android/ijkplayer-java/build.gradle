@@ -6,14 +6,14 @@ android {
     namespace 'tv.danmaku.ijk.media.java'
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
-    compileSdk 32
+    compileSdk 29
 
     lintOptions {
         abortOnError false
     }
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdkVersion 29
+        targetSdkVersion 34
     }
     buildTypes {
         release {
@@ -23,18 +23,5 @@ android {
     }
     buildFeatures {
         buildConfig = false
-    }
-
-    android.libraryVariants.all { variant ->
-        variant.outputs.all { output ->
-            def projectName = "ijkplayer-java" // 对于 ijkplayer 模块，改为 "ijkplayer"
-            def buildType = variant.buildType.name // 例如 'debug' 或 'release'
-            def newName = "${projectName}-${buildType}.aar"
-
-            // 确保是AAR文件才重命名
-            if (outputFileName.endsWith('.aar')) {
-                outputFileName = newName
-            }
-        }
     }
 }
