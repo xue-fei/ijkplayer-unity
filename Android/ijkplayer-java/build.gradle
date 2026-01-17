@@ -2,6 +2,8 @@ plugins {
     id 'com.android.library'
 }
 android {
+
+    namespace 'tv.danmaku.ijk.media.java'
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
     compileSdk 32
@@ -11,7 +13,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
     }
     buildTypes {
         release {
@@ -19,11 +21,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    buildFeatures {
+        buildConfig = false
     }
-}
-afterEvaluate {
-    generateReleaseBuildConfig.enabled = false
+
+    android.libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            def projectName = "ijkplayer-java" // 对于 ijkplayer 模块，改为 "ijkplayer"
+            def buildType = variant.buildType.name // 例如 'debug' 或 'release'
+            def newName = "${projectName}-${buildType}.aar"
+
+            // 确保是AAR文件才重命名
+            if (outputFileName.endsWith('.aar')) {
+                outputFileName = newName
+            }
+        }
+    }
 }
