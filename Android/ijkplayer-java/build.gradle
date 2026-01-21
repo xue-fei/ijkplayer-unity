@@ -6,14 +6,14 @@ android {
     namespace 'tv.danmaku.ijk.media.java'
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
-    compileSdk 29
+    compileSdk 32
 
     lintOptions {
         abortOnError false
     }
     defaultConfig {
-        minSdkVersion 29
-        targetSdkVersion 34
+        minSdkVersion 21
+        targetSdkVersion 32
     }
     buildTypes {
         release {

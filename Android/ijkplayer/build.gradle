@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace 'cn.net.xuefei.ijkplayer'
-    compileSdk 29
+    compileSdk 32
 
     defaultConfig {
-        minSdk 29
-        targetSdk 34
+        minSdk 21
+        targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
