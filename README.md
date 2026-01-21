@@ -6,24 +6,21 @@ bilibli ijkplayer播放器集成到Unity中用作RTMP的直播（Android平台�
 仅支持Android和iOS
 
 #### Android
-已适配Unity 2021.3.12f1c2
-classes.jar路径是C:\Program Files\Unity\Hub\Editor\2021.3.12f1c2\Editor\Data\PlaybackEngines\AndroidPlayer\Variations\mono\Release\Classes
+适配Unity 2022.3.62f3 进行中  
 
-UnityPlayerActivity.java路径是C:\Program Files\Unity\Hub\Editor\2021.3.12f1c2\Editor\Data\PlaybackEngines\AndroidPlayer\Source\com\unity3d\player
+jdk-11.0.21_windows-x64_bin.exe  
 
-AndroidStudio 
-ijkplayer  Build-Make Module-Android.ijkplayer 
-ijkplayer-java   Build-Make Module-Android.ijkplayer-java 
+AndroidStudio  
+./gradlew :ijkplayer-java:assembleRelease :ijkplayer:assembleRelease  
+输出的ijkplayer-debug.aar路径是ijkplayer-unity\Android\ijkplayer\build\outputs\aar  
+输出的ijkplayer-java-debug.aar路径是ijkplayer-unity\Android\ijkplayer-java\build\outputs\aar  
 
-输出的ijkplayer-debug.aar路径是ijkplayer-unity\Android\ijkplayer\build\outputs\aar
-输出的ijkplayer-java-debug.aar路径是ijkplayer-unity\Android\ijkplayer-java\build\outputs\aar
-
-拷贝到Unity工程路径下 ijkplayer-unity\Assets\IJKPlayer\Plugins\Android
+拷贝到Unity工程路径下 ijkplayer-unity\Unity\Assets\Plugins\Android  
 
 ![输入图片说明](Pictures/QQ%E5%9B%BE%E7%89%8720221129155653.jpg)
 
-rtmp://58.200.131.2:1935/livetv/hunantv 这个地址好像不行了
-换成 http://hw-m-l.cztv.com/channels/lantian/channel05/720p.m3u8
+rtmp://58.200.131.2:1935/livetv/hunantv 这个地址好像不行了  
+换成 http://hw-m-l.cztv.com/channels/lantian/channel05/720p.m3u8  
 
-之前网上搜了别人编译的so文件上传
-现在换成自己编译的，编译步骤在这里https://blog.csdn.net/AWNUXCVBN/article/details/128017823
+之前网上搜了别人编译的so文件上传  
+现在换成自己编译的，编译步骤在这里https://blog.csdn.net/AWNUXCVBN/article/details/128017823  
