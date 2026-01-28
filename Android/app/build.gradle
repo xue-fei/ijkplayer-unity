@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace 'cn.net.xuefei.ijkplayer'
-    compileSdk 29
+    compileSdk 32
 
     defaultConfig {
         applicationId "cn.net.xuefei.ijkplayer"
-        minSdk 29
+        minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

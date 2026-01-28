@@ -2,7 +2,8 @@ package cn.net.xuefei.ijkplayer;
 
 import android.graphics.Point;
 import android.graphics.SurfaceTexture;
-import android.opengl.GLES30;
+import android.opengl.GLES11Ext;
+import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.os.Build;
 import android.util.Log;
@@ -39,20 +40,18 @@ public class MyPlugin extends UnityPlayerNativeActivity{
      */
     private int createExternalTexture() {
         int[] textureIdContainer = new int[1];
-        GLES30.glGenTextures(1, textureIdContainer, 0);
+        GLES20.glGenTextures(1, textureIdContainer, 0);
+        GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
+                textureIdContainer[0]);
 
-        // GL_TEXTURE_EXTERNAL_OES 在 ES 3.0 中仍然是 0x8D65
-        final int GL_TEXTURE_EXTERNAL_OES = 0x8D65;
-        GLES30.glBindTexture(GL_TEXTURE_EXTERNAL_OES, textureIdContainer[0]);
-
-        GLES30.glTexParameterf(GL_TEXTURE_EXTERNAL_OES,
-                GLES30.GL_TEXTURE_MIN_FILTER, GLES30.GL_NEAREST);
-        GLES30.glTexParameterf(GL_TEXTURE_EXTERNAL_OES,
-                GLES30.GL_TEXTURE_MAG_FILTER, GLES30.GL_LINEAR);
-        GLES30.glTexParameteri(GL_TEXTURE_EXTERNAL_OES,
-                GLES30.GL_TEXTURE_WRAP_S, GLES30.GL_CLAMP_TO_EDGE);
-        GLES30.glTexParameteri(GL_TEXTURE_EXTERNAL_OES,
-                GLES30.GL_TEXTURE_WRAP_T, GLES30.GL_CLAMP_TO_EDGE);
+        GLES20.glTexParameterf(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
+                GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_NEAREST);
+        GLES20.glTexParameterf(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
+                GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
+        GLES20.glTexParameteri(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
+                GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE);
+        GLES20.glTexParameteri(GLES11Ext.GL_TEXTURE_EXTERNAL_OES,
+                GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);
 
         return textureIdContainer[0];
     }
@@ -187,15 +186,11 @@ public class MyPlugin extends UnityPlayerNativeActivity{
      */
     public int updateTexture() {
         synchronized (this){
-            if (_surfaceTexture == null || mFBO == null || mUnityTexture == null) {
-                return 0;
-            }
-
             _surfaceTexture.updateTexImage();
 
             Matrix.setIdentityM(mMVPMatrix,0);
             mFBO.FBOBegin();
-            GLES30.glViewport(0, 0, 1280, 720);
+            GLES20.glViewport(0, 0, 1280 , 720);
             mTexture2DExt.draw(mMVPMatrix);
             mFBO.FBOEnd();
 
@@ -205,7 +200,7 @@ public class MyPlugin extends UnityPlayerNativeActivity{
             } else {
                 UnityPlayer.currentActivity.getWindowManager().getDefaultDisplay().getSize(size);
             }
-            GLES30.glViewport(0, 0, size.x, size.y);
+            GLES20.glViewport(0,0,size.x,size.y);
 
             return mUnityTexture.getTextureID();
         }
